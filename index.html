@@ -5,10 +5,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jogo - Descubra o número</title>
+  <meta name="description"
+    content="Descubra o Número: adivinhe o número secreto entre 1 e 20 no menor número de tentativas possível." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="src/scss/main.scss" />
 </head>
 
 <body>
+  <div class="container">
+    <main class="main">
+      <section class="description" aria-labelledby="game-title">
+        <h1 class="heading-primary" id="game-title">Descubra o número!</h1>
+        <h2 class="heading-secondary">Como se joga?</h2>
+
+        <div class="description__info">
+          <p>
+            Tente adivinhar o número secreto entre 1 e 20, gerado aleatoriamente.
+            O objetivo é acertar no menor número de tentativas possível
+            e assim obter a maior pontuação final.
+          </p>
+        </div>
+
+        <button class="btn btn--again btn--animation" type="button" data-js="btn-again"
+          aria-label="Iniciar uma nova partida">
+          Jogar novamente
+        </button>
+      </section>
+
+      <section class="game" aria-label="Área do jogo">
+        <div class="game__number" data-js="game__number" aria-live="polite" aria-label="Número secreto">
+          ?
+        </div>
+        <p class="game__msg" data-js="score-msg" aria-live="polite" aria-atomic="true">
+          Comece o jogo...
+        </p>
+
+        <form class="game__form">
+          <label for="guess-input" class="sr-only">Digite seu palpite de 1 a 20</label>
+          <input id="guess-input" class="game__input" type="number" min="1" max="20" placeholder="1 – 20"
+            aria-describedby="game-msg" required data-js="game__input" autocomplete="off" />
+          <button class="btn btn--check" data-js="btn--check" type="button">Verificar</button>
+        </form>
+
+        <div class="game__score" aria-label="Placar">
+          <p class="game__score-label">
+            🎮 Pontos: <span class="score" data-js="score" aria-live="polite">20</span>
+          </p>
+          <p class="game__score-highscore">
+            🏆 Recorde: <span class="highscore" data-js="highscore" aria-live="polite">0</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__description">Desenvolvido por <span>Carla Santos</span></p>
+      <ul class="footer__social" aria-label="Redes sociais">
+        <li>
+          <a href="https://github.com/carla-santos/jogo-descubra-o-numero" target="_blank" rel="noreferrer noopener"
+            aria-label="Repositório do projeto no GitHub (abre em nova aba)">
+            <img src="public/img/github.png" alt="Ícone do Github" width="24" height="24" loading="lazy" />
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
 
   <script type="module" src="src/js/main.js"></script>
 </body>
