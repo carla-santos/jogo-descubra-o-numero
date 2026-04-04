@@ -1,0 +1,16 @@
+{
+	"name": "descubra-numero",
+	"version": "1.0.0",
+	"description": "Jogo - Descubra o número desenvolvido com HTML, SASS e Vanilla JavaScript",
+	"license": "MIT",
+	"author": "Carla Santos <carla.devjs@gmail.com> (https://github.com/carla-santos)",
+	"scripts": {
+		"dev": "parcel index.html",
+		"build": "parcel build index.html"
+	},
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.16.4",
+		"parcel": "^2.16.4",
+		"sass": "^1.99.0"
+	}
+}
