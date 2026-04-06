@@ -1,0 +1,102 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  // 62.5%: 1rem = 10px para facilitar cálculos
+  font-size: v.$font-size-root;
+  box-sizing: border-box;
+
+  // Reduz base rem em telas menores que lg
+  // 56.25% = 9px
+  @include m.media('lg') {
+    font-size: 56.25%;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: v.$color-text-primary;
+  font-family: v.$font-family-body;
+  font-size: v.$font-size-body;
+  font-weight: v.$font-weight-normal;
+  line-height: v.$line-height-base;
+
+  // Fallback de cor antes do gradiente
+  background-color: v.$color-brand-primary;
+  background-image: linear-gradient(to right bottom, v.$color-brand-primary, v.$color-brand-accent);
+
+  // Melhor renderização tipográfica
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+[role='button'],
+[type='button'],
+[type='submit'],
+[type='reset'] {
+  cursor: pointer;
+}
+
+// Foco visível apenas para navegação por teclado
+:focus-visible {
+  outline: 2px solid v.$color-brand-primary;
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Seleção de texto personalizada
+::selection {
+  background-color: v.$color-brand-primary;
+  color: v.$color-surface;
+}
+
+// Classe utilitária para leitores de tela
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
