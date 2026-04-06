@@ -1,0 +1,44 @@
+@use 'variables' as v;
+
+@mixin media($size) {
+  @media only screen and (max-width: map-get(v.$breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin container($width: 100%) {
+  max-width: v.$max-width-container;
+  width: $width;
+}
+
+@mixin flex($flex-direction: null, $gutter: null) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $flex-direction;
+  gap: $gutter;
+}
+
+@mixin flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between($align: center) {
+  justify-content: space-between;
+  align-items: $align;
+}
+
+@mixin grid($cols: 1, $size: 1fr, $gap: null) {
+  display: grid;
+  grid-template-columns: repeat($cols, $size);
+
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+@mixin grid-auto($min: 24rem, $gap: v.$grid-gutter) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  gap: $gap;
+}
