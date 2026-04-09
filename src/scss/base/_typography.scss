@@ -1,0 +1,47 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+@mixin heading-base {
+  line-height: v.$line-height-tight;
+  font-weight: v.$font-weight-bold;
+
+  // Animações apenas se o usuário não tiver preferência por movimento reduzido
+  @media (prefers-reduced-motion: no-preference) {
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+  }
+}
+
+.heading-primary {
+  @include heading-base;
+
+  font-size: v.$font-size-h1;
+  color: v.$color-brand-primary;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation-name: moveLeft;
+  }
+
+  @include m.media('lg') {
+    font-size: v.$font-size-2xl;
+  }
+}
+
+.heading-secondary {
+  @include heading-base;
+
+  font-size: v.$font-size-h2;
+  color: v.$color-text-primary;
+
+  // margin-block — propriedade lógica moderna
+  margin-block: v.$spacing-4;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation-name: moveRight;
+  }
+
+  @include m.media('lg') {
+    font-size: v.$font-size-xl;
+  }
+}
