@@ -1,0 +1,39 @@
+:root {
+	// Cores - Tema claro (Padrão)
+	--color-primary-100: #c09dc7;
+	--color-primary-500: #610972;
+	--color-primary-900: #440650;
+
+	--color-surface-100: #fff;
+	--color-surface-200: #eee;
+	--color-surface-300: #eceeec;
+	--color-surface-400: #dbd6d6;
+	--color-surface-500: #cbcfcb;
+
+	--color-text-primary: #221f1f;
+
+	// Tipografia
+	--font-family-body: 'Roboto Condensed', sans-serif;
+	--font-size-base: 62.5%;
+	--font-size-body: 1.6rem;
+
+	--font-size-h1: 4rem;
+	--font-size-h2: 3rem;
+
+	--line-height-sm: 1;
+	--line-height-base: 1.5;
+	--line-height-lg: 1.8;
+
+	// Bordas e Grid
+	--border-radius-pill: 50%;
+	--border-radius-md: 1rem;
+	--grid-gutter: 2rem;
+	--max-width-container: 120rem;
+}
+
+$devices: (
+	'sm': 576px,
+	'md': 768px,
+	'lg': 992px,
+	'xl': 1200px,
+);
